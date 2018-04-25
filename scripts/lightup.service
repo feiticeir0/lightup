@@ -1,0 +1,14 @@
+[Unit]
+Description=uWSGI instance to serve lightup
+After=network.target
+
+[Service]
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/lightup
+Environment="PATH=/home/pi/lightup/venv/bin"
+ExecStart=/home/pi/lightup/venv/bin/uwsgi --ini lightup_uwsgi.ini
+
+[Install]
+WantedBy=multi-user.target
+
